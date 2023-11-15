@@ -40,17 +40,17 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     # external apps
     'dj_rest_auth',
-
+    'dj_rest_auth.registration',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'dj_rest_auth.registration',
-
     'drf_spectacular',
+    'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
     # internal apps
     'accounts.apps.AccountsConfig',
+    'Todos.apps.TodosConfig',
 
 
 ]
