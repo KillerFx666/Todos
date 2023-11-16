@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from accounts.models import User
 
 
 class TodoStatus(models.Choices):
@@ -11,8 +10,9 @@ class TodoStatus(models.Choices):
 
 class Todo(models.Model):
     title = models.CharField(max_length=255)
-    description = models.CharField(max_length=500)
-    status = models.CharField(max_length=9, choices=TodoStatus.choices, default=TodoStatus.PENDING)
+    description = models.TextField(blank=True)
+    status = models.CharField(max_length=9, choices=TodoStatus.choices, default=TodoStatus.PENDING, )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='todos')
     is_active = models.BooleanField(default=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
