@@ -8,9 +8,4 @@ services:
       - .:/code/
     expose:
       - "8000"
-    networks:
-      - main
     restart: on-failure
-
-networks:
-  main:
